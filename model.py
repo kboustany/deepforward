@@ -1,8 +1,8 @@
 """A class representing a feedforward neural network."""
 
 from itertools import pairwise
-from processor import Processor
-from trainer import Trainer
+from deepforward.processor import Processor
+from deepforward.trainer import Trainer
 
 
 class Model:
