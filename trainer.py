@@ -1,7 +1,7 @@
 """A class containing a trainer used to train deep neural networks."""
 
-from history import History
-from tasks import *
+from deepforward.history import History
+from deepforward.tasks import *
 
 tasks = {'regression': Regression, 'classification': Classification}
 
