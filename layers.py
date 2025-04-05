@@ -1,6 +1,6 @@
 """A set of classes representing model layers for a feedforward neural net."""
 
-from activations import *
+from deepforward.activations import *
 
 activations = {'identity': Identity, 'softmax': Softmax, 'relu': ReLU}
 
