@@ -5,26 +5,18 @@ from numpy import sqrt
 
 class Optimizer:
     """A base class for an optimizer used in gradient descent."""
-
-    # Constructor. -------------------------------------------------------------
     
     def __init__(self, rate): 
         self._rate = rate
         self._iteration = 0
 
-    # Abstract mutators. -------------------------------------------------------
-
     def set_layers(self, model):
         """Store model layers for optimizers which keep layer-wise data."""
         raise NotImplementedError("Must be implemented by subclass.")
 
-    # Abstract utilities. ------------------------------------------------------
-
     def _algorithm(self, layer, gradient, batch_size):
         """Algorithm used by optimizer to calculate weight update."""
         raise NotImplementedError("Must be implemented by subclass.")
-
-    # Public mutators. ---------------------------------------------------------
 
     def update(self, layer, gradient, batch_size):
         """Increase iteration and returns weight update to trainer."""
@@ -35,12 +27,8 @@ class Optimizer:
 class SGD(Optimizer):
     """A standard gradient descent optimizer."""
 
-    # Public mutators. ---------------------------------------------------------
-
     def set_layers(self, model):
         pass
-
-    # Nonpublic utilities. -----------------------------------------------------
 
     def _algorithm(self, layer, gradient, batch_size):
         return -(self._rate / batch_size) * gradient
@@ -57,15 +45,11 @@ class Adam(Optimizer):
         self._m = {}
         self._s = {}
 
-    # Public mutators. ---------------------------------------------------------
-
     def set_layers(self, model):
         for layer in model.layers():
             if layer.is_trainable():
                 self._m[layer] = 0
                 self._s[layer] = 0
-
-    # Nonpublic utilities. -----------------------------------------------------
 
     def _algorithm(self, layer, gradient, batch_size):
         self._m[layer] = (self._b1 * self._m[layer]) \
