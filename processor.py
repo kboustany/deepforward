@@ -11,13 +11,9 @@ def mean_std(input, flag):
 class Processor:
     """A processor for splitting and scaling training data."""
 
-    # Constructor. -------------------------------------------------------------
-
     def __init__(self):
         self._X_scaler = None
         self._Y_scaler = None
-
-    # Public accessors. --------------------------------------------------------
 
     def scale_X(self, input, inverse=False):
         """Normalize input values to mean zero and standard deviation one.
@@ -40,8 +36,6 @@ class Processor:
                 return (self._Y_scaler[1] * input) + self._Y_scaler[0]
             return (input - self._Y_scaler[0]) / self._Y_scaler[1]
         return input
-
-    # Public mutators. ---------------------------------------------------------
     
     def call(self, X, Y, validation, scale_X, scale_Y):
         """Primary method called by model during data preprocessing.
@@ -54,8 +48,6 @@ class Processor:
         valid_set  = self.scale_X(X_valid), self.scale_Y(Y_valid)
         return train_set, valid_set
     
-    # Nonpublic utilities. -----------------------------------------------------
-
     def _split(self, X, Y, validation):
         """Split full training data into training and validation sets.
         
