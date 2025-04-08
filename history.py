@@ -6,13 +6,9 @@ import matplotlib.pyplot as plt
 class History:
     """An object which records and displays the results of model training."""
 
-    # Constructor. -------------------------------------------------------------
-
     def __init__(self):
         self._data = [{}, {}, {}, {}]
         self._epochs = 0
-
-    # Public accessors. --------------------------------------------------------
 
     def summarize(self):
         """Summarize final losses and metrics, and plot training history."""
@@ -22,15 +18,11 @@ class History:
               f"Final validation metric: {self._data[3][self._epochs]:.4f}")
         self._plot()
 
-    # Public mutators. ---------------------------------------------------------
-
     def update(self, data):
         """Update training data after training for one epoch."""
         self._epochs += 1
         for index, datum in enumerate(data):
             self._data[index][self._epochs] = datum
-
-    # Nonpublic utilities. -----------------------------------------------------
 
     def _plot(self):
         """Utility for configuring training history plots."""
