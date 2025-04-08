@@ -24,8 +24,6 @@ def batches(input, output, size):
 class Trainer:
     """A trainer for a feedforward neural network."""
 
-    # Constructor. -------------------------------------------------------------
-
     def __init__(self, model, task, optimizer):
         self._model = model
         self._task = tasks[task]
@@ -33,24 +31,18 @@ class Trainer:
         self._optimizer.set_layers(model)
         self._history = History()
 
-    # Public accessors. --------------------------------------------------------
-
     def evaluate(self, prediction, true):
         """Method called by model during evaluation."""
         loss = self._task.loss(prediction, true)
         metric = self._task.metric(prediction, true)
         return loss, metric
     
-    # Public mutators. ---------------------------------------------------------
-
     def call(self, train_set, valid_set, epochs, batch_size):
         """Primary method called by model during training."""
         for _ in range(epochs):
             self._train_for_epoch(train_set, valid_set, batch_size)
         self._clear_layers()
         self._history.summarize()
-
-    # Nonpublic utilities. -----------------------------------------------------
 
     def _train_for_epoch(self, train_set, valid_set, batch_size):
         """Train model for one epoch."""
