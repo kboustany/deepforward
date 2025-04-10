@@ -8,8 +8,6 @@ from deepforward.trainer import Trainer
 class Model:
     """A feedforward neural network model for regression and classification."""
 
-    # Constructor. -------------------------------------------------------------
-
     def __init__(self, layers):
         self._layers = layers
         for current, next in pairwise(self._layers):
@@ -20,8 +18,6 @@ class Model:
         self._preprocessed = False
         self._configured = False
         self._trained = False
-
-    # Public accessors. --------------------------------------------------------
     
     def is_preprocessed(self):
         """Return True if training data has been preprocessed."""
@@ -55,8 +51,6 @@ class Model:
         print(f"Test loss: {loss:.4f}    "
               f"Test metric: {metric:.4f}")
 
-    # Public mutatators. -------------------------------------------------------
-
     def preprocess(self, X, Y, validation=0.1, scale_X=False, scale_Y=False):
         """Split full training data into training and validation sets.
         
@@ -78,8 +72,6 @@ class Model:
         self._validate_training(epochs, batch_size, len(train_set[0]))
         self._trainer.call(train_set, valid_set, epochs, batch_size)
         self._trained = True
-
-    # Nonpublic utilities. -----------------------------------------------------
 
     def _validate_training(self, epochs, batch_size, max_size):
         """Determine if model is properly initialized for training."""
