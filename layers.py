@@ -2,6 +2,7 @@
 
 from deepforward.activations import *
 
+
 activations = {'identity': Identity, 'softmax': Softmax, 'relu': ReLU}
 
 def add_intercept(input):
