@@ -3,6 +3,7 @@
 from deepforward.history import History
 from deepforward.tasks import *
 
+
 tasks = {'regression': Regression, 'classification': Classification}
 
 rng = np.random.default_rng(42)
