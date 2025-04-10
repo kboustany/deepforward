@@ -3,6 +3,7 @@
 from math import ceil
 from numpy import mean, std
 
+
 def mean_std(input, flag):
     """Global utility for extracting mean and standard deviation."""
     return (mean(input, axis=0), std(input, axis=0)) if flag else None
