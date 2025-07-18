@@ -9,6 +9,3 @@ as opposed to reverse autodiff.
 The implementation of the library is rather efficient, as testing by training two deep models on the Fashion-MNIST dataset
 using this library and the Keras library yielded very close training times, with my library even sometimes performing
 significantly faster on my local machine.
-
-An obvious disclaimer: this library is not meant to perform on any level comparable to any of the standard professional
-libraries available out there.
