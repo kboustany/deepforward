@@ -12,4 +12,4 @@ significantly faster on my local machine.
 
 # Setup
 
-Since this was not really meant to be something people would use in lieu of Keras or PyTorch, I did not bother turning it into a package. This being said, you can still use inside a Colab notebook if you so choose. The process for doing so is simple and demonstrated in the example notebooks contained herein.
+Since this was not really meant to be something people would use in lieu of Keras or PyTorch, I did not bother turning it into a package. This being said, you can still use the library inside a Colab notebook if you so choose. The process for doing so is simple and is demonstrated in the example notebooks contained herein.
